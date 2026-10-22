@@ -1,0 +1,27 @@
+{
+  "name": "mayank-portfolio",
+  "version": "2.0.0",
+  "description": "Full-stack ECE portfolio for Mayank Mani Pandey featuring interactive hardware lab, dynamic guestbook, contact API, and modern responsive UI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "portfolio",
+    "ece",
+    "embedded-systems",
+    "iot",
+    "arduino",
+    "express",
+    "full-stack"
+  ],
+  "author": "Mayank Mani Pandey",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}

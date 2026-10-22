@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Mayank Mani Pandey | ECE Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a58ca;
+      --accent: #0f766e;
+      --dark: #0f172a;
+      --gray: #475569;
+      --light-gray: #f8fafc;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--dark);
+      background: #f1f5f9;
+      padding: 30px 15px;
+      line-height: 1.5;
+    }
+    .resume-toolbar {
+      max-width: 850px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .back-btn, .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .back-btn { background: #f1f5f9; color: var(--dark); border: 1px solid var(--border); }
+    .back-btn:hover { background: #e2e8f0; }
+    .print-btn { background: var(--accent); color: white; border: none; }
+    .print-btn:hover { background: #0d5f59; transform: translateY(-1px); }
+
+    .resume-paper {
+      max-width: 850px;
+      margin: 0 auto;
+      background: white;
+      padding: 48px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      color: #042f2e;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--gray);
+    }
+    .contact-bar a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    .contact-bar span { display: inline-flex; align-items: center; gap: 4px; }
+
+    section { margin-bottom: 24px; }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0f172a;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .item { margin-bottom: 16px; }
+    .item:last-child { margin-bottom: 0; }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .item-title { font-weight: 700; font-size: 1rem; color: #1e293b; }
+    .item-subtitle { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+    .item-date { font-size: 0.82rem; color: #64748b; font-weight: 500; }
+    .item p, .item ul { font-size: 0.9rem; color: #334155; }
+    .item ul { padding-left: 18px; margin-top: 6px; }
+    .item li { margin-bottom: 4px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .skill-category {
+      background: #f8fafc;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .skill-category strong {
+      display: block;
+      font-size: 0.84rem;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .skill-category span {
+      font-size: 0.88rem;
+      color: #1e293b;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .resume-toolbar { display: none; }
+      .resume-paper { box-shadow: none; padding: 0; }
+      a { text-decoration: none; color: black; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-toolbar">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <button class="print-btn" onclick="window.print()">🖨️ Print or Save as PDF</button>
+  </div>
+
+  <main class="resume-paper">
+    <header>
+      <h1>Mayank Mani Pandey</h1>
+      <div class="subtitle">Electronics & Communication Engineering Undergraduate | IoT & Embedded Systems Builder</div>
+      <div class="contact-bar">
+        <span>📍 Pondicherry, India</span>
+        <span>✉️ <a href="mailto:mayankmanipandey2004@gmail.com">mayankmanipandey2004@gmail.com</a></span>
+        <span>🔗 <a href="https://linkedin.com/" target="_blank">LinkedIn</a></span>
+        <span>💻 <a href="https://github.com/" target="_blank">GitHub</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Pondicherry University</span>
+            <span class="item-subtitle">— Bachelor of Technology (B.Tech) in ECE</span>
+          </div>
+          <span class="item-date">2022 – Present</span>
+        </div>
+        <p>Core Coursework: Embedded Microcontrollers, Digital Electronics, Signals & Systems, IoT Architecture, Microprocessors (8085/8086), Object Oriented Programming, Data Structures & Algorithms.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <strong>Hardware & Microcontrollers</strong>
+          <span>Arduino (Uno, Nano, Mega), ESP32, ESP8266, Microchip AVR ATmega328P, Sensors & Actuators, Breadboard Prototyping</span>
+        </div>
+        <div class="skill-category">
+          <strong>Programming & Scripting</strong>
+          <span>C, C++, Embedded C, Python, JavaScript, HTML5/CSS3, SQL, MATLAB</span>
+        </div>
+        <div class="skill-category">
+          <strong>EDA & Simulation Tools</strong>
+          <span>Proteus Circuit Simulator, Tinkercad Circuits, EasyEDA, KiCAD, Multisim</span>
+        </div>
+        <div class="skill-category">
+          <strong>Protocols & Communication</strong>
+          <span>I2C, SPI, UART, PWM, Wi-Fi / HTTP / MQTT Basics, REST APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Featured Engineering Projects</h2>
+      
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Green Garuda Co. — Circular Smart Waste & IoT Recycling Platform</span>
+          <span class="item-date">Design & IoT System</span>
+        </div>
+        <ul>
+          <li>Engineered a sustainable waste-stream concept connecting sensor-equipped collection bins with automated material classification and inventory tracking.</li>
+          <li>Devised smart collection routing and consumer incentive credits for verified plastic and refurbished electronic waste drop-offs.</li>
+          <li>Presented circular engineering workflow in competitive design reviews, winning commendation for hardware integration feasibility.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Arduino Seven-Segment Digital Counter with Debounced Controls</span>
+          <span class="item-date">Embedded Systems</span>
+        </div>
+        <ul>
+          <li>Designed and wired a 7-segment LED decimal counter powered by an ATmega328P microcontroller with hardware pull-down push-buttons.</li>
+          <li>Implemented software debounce filtering and modular lookup table BCD bitmask driving logic in C/C++.</li>
+          <li>Validated power consumption and thermal stability in Proteus simulation before breadboard hardware realization.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Smart LCD Alphanumeric Telemetry & Piezo Buzzer Alert Station</span>
+          <span class="item-date">Embedded Systems</span>
+        </div>
+        <ul>
+          <li>Constructed an interactive 16x2 alphanumeric liquid crystal display system with multi-frequency tone generation using piezo transducers.</li>
+          <li>Engineered dynamic state-machine firmware supporting menu selection, threshold monitoring, and acoustic alert signals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Achievements & Leadership</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Hackathon Runner-Up</span>
+          <span class="item-date">Hardware & Embedded Track</span>
+        </div>
+        <p>Collaborated in a high-intensity hackathon sprint to engineer, prototype, and pitch a functioning hardware-software prototype within 36 hours.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">FOSSMeet Engineering Delegate</span>
+          <span class="item-date">Open-Source Community</span>
+        </div>
+        <p>Active participant in regional open-source summits, contributing to hardware tooling discussions and embedded Linux sessions.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">TEDx Community Contributor</span>
+          <span class="item-date">Pondicherry University</span>
+        </div>
+        <p>Engaged in organizing university-wide innovation events, moderating multidisciplinary engineering talks and technology showcases.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

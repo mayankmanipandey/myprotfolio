@@ -1,0 +1,24 @@
+[
+  {
+    "id": "msg_1792684306988_6hhk0m",
+    "name": "Sarah Connor",
+    "email": "sarah@robotics-ai.io",
+    "subject": "Embedded Systems Internship Discussion",
+    "interest": "Internship Opportunity",
+    "message": "Hello Mayank, we loved your IoT waste management and 7-segment counter projects. Would like to connect!",
+    "createdAt": "2026-10-22T15:51:46.988Z",
+    "read": false,
+    "ip": "::ffff:127.0.0.1"
+  },
+  {
+    "id": "msg_1792683569311_ggu6yk",
+    "name": "Sarah Connor",
+    "email": "sarah@robotics-ai.io",
+    "subject": "Embedded Systems Internship Discussion",
+    "interest": "Internship Opportunity",
+    "message": "Hello Mayank, we loved your IoT waste management and 7-segment counter projects. Would like to connect!",
+    "createdAt": "2026-10-22T15:39:29.311Z",
+    "read": false,
+    "ip": "::ffff:127.0.0.1"
+  }
+]

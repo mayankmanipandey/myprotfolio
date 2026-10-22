@@ -1,0 +1,34 @@
+[
+  {
+    "id": "gb_1792684306977_pm353i",
+    "name": "Dr. Ramesh Kumar",
+    "role": "ECE Dept Faculty",
+    "badge": "Mentor",
+    "message": "Great portfolio project with real embedded engineering focus!",
+    "date": "2026-10-22T15:51:46.977Z"
+  },
+  {
+    "id": "gb_1792683569304_xqvyre",
+    "name": "Dr. Ramesh Kumar",
+    "role": "ECE Dept Faculty",
+    "badge": "Mentor",
+    "message": "Great portfolio project with real embedded engineering focus!",
+    "date": "2026-10-22T15:39:29.304Z"
+  },
+  {
+    "id": "gb_seed_1",
+    "name": "Pondicherry Tech Forum",
+    "role": "Community Peer",
+    "badge": "Collaborator",
+    "message": "Mayank's hardware debugging and Arduino prototyping skills are genuinely impressive. Great teammate on ECE projects!",
+    "date": "2026-03-15T10:30:00Z"
+  },
+  {
+    "id": "gb_seed_2",
+    "name": "Hackathon Judging Panel",
+    "role": "Green Tech Reviewer",
+    "badge": "Mentor",
+    "message": "Green Garuda Co. had one of the clearest circular-economy IoT architectures presented at the event.",
+    "date": "2026-04-02T14:15:00Z"
+  }
+]

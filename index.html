@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mayank Mani Pandey — Electronics & Communication Engineering Portfolio. Embedded Systems, IoT, Arduino, and Full-Stack Engineering." />
+  <meta name="keywords" content="Mayank Mani Pandey, ECE, Electronics and Communication Engineering, Embedded Systems, IoT, Arduino, Hardware, Portfolio" />
+  <meta name="author" content="Mayank Mani Pandey" />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Mayank Mani Pandey | ECE & Embedded Systems Portfolio" />
+  <meta property="og:description" content="Explore hardware prototypes, IoT architectures, and embedded projects by Mayank Mani Pandey." />
+  <meta property="og:type" content="website" />
+
+  <title>Mayank Mani Pandey | ECE & Embedded Systems Portfolio</title>
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+  <!-- Interactive Background Canvas -->
+  <canvas id="circuitCanvas" class="circuit-canvas"></canvas>
+  
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Navigation Bar -->
+  <header class="header-nav" id="top">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="#home" class="brand" aria-label="Mayank Portfolio Home">
+        <div class="brand-avatar-box">
+          <span class="brand-dot"></span>
+          <span class="brand-code" id="brandInitials">MMP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name" id="brandFullName">Mayank M. Pandey</span>
+          <span class="brand-sub">ECE Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links" id="desktopNav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#interactive-lab" class="nav-link nav-highlight">ECE Lab</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#guestbook" class="nav-link">Guestbook</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="nav-actions">
+        <!-- SFX Toggle -->
+        <button id="sfxToggleBtn" class="control-btn" title="Toggle Sound FX" aria-label="Toggle Sound Effects">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="control-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <!-- Resume Button -->
+        <a href="resume.html" class="btn btn-sm btn-outline-cyan" id="navResumeBtn">Resume ↗</a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Skills</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#interactive-lab" class="mobile-nav-link">Virtual ECE Lab</a>
+        <a href="#achievements" class="mobile-nav-link">Achievements</a>
+        <a href="#guestbook" class="mobile-nav-link">Guestbook</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="resume.html" class="mobile-nav-link resume-highlight">View Resume (Print / PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="section hero-section" id="home">
+      <div class="hero-content reveal">
+        <!-- Status Pill -->
+        <div class="status-badge">
+          <span class="pulse-indicator"></span>
+          <span>AVAILABLE FOR 2025/2026 INTERNSHIPS & COLLABS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I’m <span class="gradient-text" id="heroName">Mayank Mani Pandey</span>
+        </h1>
+        
+        <div class="typing-container">
+          <span class="typing-prefix">> </span>
+          <span class="typing-text" id="typingRole">Electronics & Communication Engineering Student</span>
+          <span class="typing-cursor">_</span>
+        </div>
+
+        <p class="hero-description" id="heroIntro">
+          I’m an ECE student at Pondicherry University who builds practical systems with microcontrollers, IoT, sensors, and firmware — continuously turning hardware schematics into working, real-world solutions.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Engineering Work</span>
+            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#interactive-lab" class="btn btn-secondary">
+            <span>Try ECE Virtual Lab</span>
+            <span class="badge-mini">Live</span>
+          </a>
+          <a href="resume.html" class="btn btn-ghost" id="heroResumeBtn" target="_blank" rel="noopener">
+            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Resume</span>
+          </a>
+        </div>
+
+        <!-- Quick Metrics -->
+        <div class="hero-stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">ECE</div>
+            <div class="stat-label">Pondicherry Univ</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="statProjects">3+</div>
+            <div class="stat-label">Working Prototypes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="statSkills">12+</div>
+            <div class="stat-label">Tech Competencies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="statBackendStatus">Active</div>
+            <div class="stat-label">System Health</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Interactive Terminal Card -->
+      <div class="hero-terminal-wrapper reveal delay-1">
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="window-controls">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">mayank@ece-workstation: ~/firmware</div>
+            <button class="copy-code-btn" id="copyCodeBtn" title="Copy code to clipboard">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+
+          <!-- Code Tabs -->
+          <div class="terminal-tabs">
+            <button class="tab-btn active" data-tab="arduino">atmega_counter.c</button>
+            <button class="tab-btn" data-tab="iot">iot_telemetry.cpp</button>
+            <button class="tab-btn" data-tab="bio">engineer.json</button>
+          </div>
+
+          <div class="terminal-body">
+            <pre><code id="terminalCodeContent" class="code-block"></code></pre>
+          </div>
+
+          <!-- Live Hardware Signal Bar -->
+          <div class="terminal-footer">
+            <div class="live-signal">
+              <span class="signal-blinker"></span>
+              <span id="telemetryStatusText">ATmega328P • 16MHz • 5.0V STABLE</span>
+            </div>
+            <div class="baud-rate">9600 BAUD</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <div class="section-tag">01 / BACKGROUND & PASSION</div>
+        <h2 class="section-title">Bridging Silicon, Firmware, and Software.</h2>
+        <p class="section-desc">From breadboard circuitry to full-stack IoT telemetry dashboards.</p>
+      </div>
+
+      <div class="about-container">
+        <!-- Profile Card -->
+        <div class="about-profile-card reveal">
+          <div class="avatar-wrapper">
+            <img src="assets/img/avatar-chip.jpg" alt="Mayank Mani Pandey Hardware Badge" class="avatar-image" loading="lazy" />
+            <div class="avatar-ring"></div>
+            <div class="online-indicator" title="Active in Electronics Lab"></div>
+          </div>
+          
+          <h3 class="about-name">Mayank Mani Pandey</h3>
+          <p class="about-role">B.Tech in Electronics & Communication</p>
+          <p class="about-campus">📍 Pondicherry University, India</p>
+
+          <div class="about-bio" id="aboutBioText">
+            <!-- Populated via script.js -->
+          </div>
+
+          <div class="about-meta-badges">
+            <span class="meta-badge">🔧 Embedded C / C++</span>
+            <span class="meta-badge">⚡ Circuit Simulation</span>
+            <span class="meta-badge">📡 IoT Architecture</span>
+            <span class="meta-badge">💻 Full-Stack Web</span>
+          </div>
+
+          <div class="about-social-links" id="aboutSocials">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Timeline & Engineering Journey -->
+        <div class="about-timeline-card reveal delay-1">
+          <h3 class="timeline-heading">
+            <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Academic & Engineering Path
+          </h3>
+          <div class="timeline-list" id="timelineList">
+            <!-- Timeline items rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section class="section" id="skills">
+      <div class="section-header reveal">
+        <div class="section-tag">02 / CORE CAPABILITIES</div>
+        <h2 class="section-title">Tools, Hardware & Engineering Stack.</h2>
+        <p class="section-desc">Technologies and development toolchains I use to engineer robust physical and digital systems.</p>
+      </div>
+
+      <!-- Skill Filter Tabs -->
+      <div class="filter-tabs reveal" id="skillFilterTabs">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="Hardware">Hardware & Embedded</button>
+        <button class="filter-btn" data-filter="Programming">Programming</button>
+        <button class="filter-btn" data-filter="Tools">Engineering Tools</button>
+        <button class="filter-btn" data-filter="Web">Web & Cloud</button>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="skills-grid" id="skillsGridContainer">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- INTERACTIVE ECE LAB PLAYGROUND (UNIQUE FEATURE) -->
+    <section class="section ece-lab-section" id="interactive-lab">
+      <div class="section-header reveal">
+        <div class="section-tag lab-tag">⚡ INTERACTIVE VIRTUAL LAB</div>
+        <h2 class="section-title">Virtual 7-Segment & Telemetry Lab.</h2>
+        <p class="section-desc">Experience an interactive simulation of the digital logic and microcontroller projects I build in the lab.</p>
+      </div>
+
+      <div class="lab-workbench reveal">
+        <!-- Left: Virtual 7-Segment Display Device -->
+        <div class="lab-card virtual-device-card">
+          <div class="device-header">
+            <div class="device-name">7-SEGMENT LED DISPLAY (COMMON CATHODE)</div>
+            <div class="device-status"><span class="led-dot green"></span> ACTIVE</div>
+          </div>
+
+          <div class="display-stage">
+            <!-- 7-Segment SVG Container -->
+            <div class="seven-segment" id="sevenSegmentDisplay">
+              <!-- SVG with 7 segments: a, b, c, d, e, f, g + dp -->
+              <svg viewBox="0 0 130 200" class="seg-svg">
+                <!-- Segment a -->
+                <polygon id="seg-a" class="segment off" points="25,12 105,12 95,26 35,26" />
+                <!-- Segment b -->
+                <polygon id="seg-b" class="segment off" points="107,14 117,24 105,95 93,87" />
+                <!-- Segment c -->
+                <polygon id="seg-c" class="segment off" points="104,103 116,95 106,176 94,166" />
+                <!-- Segment d -->
+                <polygon id="seg-d" class="segment off" points="25,188 105,188 95,174 35,174" />
+                <!-- Segment e -->
+                <polygon id="seg-e" class="segment off" points="14,95 26,103 16,176 26,166" />
+                <!-- Segment f -->
+                <polygon id="seg-f" class="segment off" points="14,24 24,14 36,87 24,95" />
+                <!-- Segment g -->
+                <polygon id="seg-g" class="segment off" points="25,100 35,93 95,93 105,100 95,107 35,107" />
+                <!-- Decimal point dp -->
+                <circle id="seg-dp" class="segment off" cx="120" cy="184" r="6" />
+              </svg>
+            </div>
+
+            <!-- Value readout -->
+            <div class="readout-box">
+              <div class="readout-val" id="currentDigitValue">0</div>
+              <div class="readout-caption">Decimal Digit</div>
+            </div>
+          </div>
+
+          <!-- Logic Analysis Readout -->
+          <div class="logic-decoder-panel">
+            <div class="logic-item">
+              <span class="logic-label">Binary Bus (GFEDCBA):</span>
+              <code class="logic-value" id="binaryBusVal">0b00111111</code>
+            </div>
+            <div class="logic-item">
+              <span class="logic-label">Hex Register:</span>
+              <code class="logic-value" id="hexBusVal">0x3F</code>
+            </div>
+          </div>
+
+          <!-- Interactive Control Buttons -->
+          <div class="lab-controls">
+            <button class="lab-btn" id="labBtnDec" title="Decrement digit">
+              <span>− Step Down</span>
+            </button>
+            <button class="lab-btn primary" id="labBtnInc" title="Increment digit">
+              <span>+ Step Up</span>
+            </button>
+            <button class="lab-btn" id="labBtnReset" title="Reset to 0">
+              <span>Reset (0)</span>
+            </button>
+            <button class="lab-btn auto-btn" id="labBtnAuto" title="Start automatic counting cycle">
+              <span id="autoBtnText">▶ Auto Cycle</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Telemetry & Firmware Inspector -->
+        <div class="lab-card telemetry-card">
+          <div class="device-header">
+            <div class="device-name">LIVE HARDWARE TELEMETRY & FIRMWARE STATUS</div>
+            <button class="refresh-telemetry-btn" id="refreshTelemetryBtn" title="Ping hardware">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <span>Poll Bus</span>
+            </button>
+          </div>
+
+          <div class="telemetry-grid" id="telemetryGrid">
+            <div class="tele-item">
+              <span class="tele-label">Controller Node</span>
+              <span class="tele-value highlight" id="telDevice">ATmega328P</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">VCC Supply</span>
+              <span class="tele-value" id="telVoltage">5.02 V</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">Current Draw</span>
+              <span class="tele-value" id="telCurrent">148 mA</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">Chip Temperature</span>
+              <span class="tele-value" id="telTemp">27.4 °C</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">RF Signal (RSSI)</span>
+              <span class="tele-value" id="telRssi">-54 dBm</span>
+            </div>
+            <div class="tele-item">
+              <span class="tele-label">I2C Subsystem</span>
+              <span class="tele-value" id="telI2c">ACK (0x3C Display)</span>
+            </div>
+          </div>
+
+          <!-- Lab Instructions & Concept -->
+          <div class="lab-explanation">
+            <h4>💡 How this works in the physical lab:</h4>
+            <p>
+              In my physical Arduino prototype, each of the 7 cathode pins is mapped to digital pins D2–D8 via 220Ω current-limiting resistors. Two tactile buttons on pins D9 and D10 trigger debounced software interrupts to increment/decrement the counter, outputting bitmasks from a precomputed lookup array.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <div class="section-tag">03 / SELECTED WORK</div>
+        <h2 class="section-title">Hardware, IoT & Embedded Projects.</h2>
+        <p class="section-desc">Engineered systems combining hardware prototyping, circuit simulation, and interactive firmware.</p>
+      </div>
+
+      <!-- Project Filter Pills -->
+      <div class="filter-tabs reveal" id="projectFilterTabs">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="IoT">IoT & Smart Systems</button>
+        <button class="filter-btn" data-filter="Embedded">Embedded & AVR</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGridContainer">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="section" id="achievements">
+      <div class="section-header reveal">
+        <div class="section-tag">04 / MILESTONES & HONORS</div>
+        <h2 class="section-title">Beyond the Classroom.</h2>
+        <p class="section-desc">Competitive hackathons, open source contributions, and engineering community leadership.</p>
+      </div>
+
+      <div class="achievements-grid" id="achievementsGridContainer">
+        <!-- Rendered by script.js -->
+      </div>
+    </section>
+
+    <!-- GUESTBOOK / ENDORSEMENTS SECTION (FULL-STACK INTEGRATED) -->
+    <section class="section" id="guestbook">
+      <div class="section-header reveal">
+        <div class="section-tag">05 / COMMUNITY & ENDORSEMENTS</div>
+        <h2 class="section-title">Visitor & Recruiter Guestbook.</h2>
+        <p class="section-desc">Leave a note, feedback on my projects, or an endorsement for my engineering journey.</p>
+      </div>
+
+      <div class="guestbook-container reveal">
+        <!-- Left: Form to Post Note -->
+        <div class="guestbook-form-card">
+          <h3>Sign the Guestbook</h3>
+          <p class="form-subtext">Leave a message for Mayank. Entries are stored via the backend API.</p>
+
+          <form id="guestbookForm" class="custom-form">
+            <div class="form-group">
+              <label for="gbName">Your Name *</label>
+              <input type="text" id="gbName" required placeholder="e.g. Alex Chen" maxlength="50" />
+            </div>
+
+            <div class="form-group">
+              <label for="gbRole">Role / Affiliation</label>
+              <input type="text" id="gbRole" placeholder="e.g. Recruiter, IoT Engineer, Classmate" maxlength="60" />
+            </div>
+
+            <div class="form-group">
+              <label for="gbBadge">Category</label>
+              <select id="gbBadge">
+                <option value="Recruiter">Recruiter / Employer</option>
+                <option value="Mentor">Professor / Mentor</option>
+                <option value="Peer" selected>Peer / Student</option>
+                <option value="Collaborator">Project Collaborator</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="gbMessage">Endorsement / Note *</label>
+              <textarea id="gbMessage" required rows="3" placeholder="Write a brief note or feedback..." maxlength="300"></textarea>
+              <div class="char-count"><span id="gbCharCount">0</span>/300</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="gbSubmitBtn">
+              <span>Post to Guestbook</span>
+              <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Entries Feed -->
+        <div class="guestbook-feed-card">
+          <div class="feed-header">
+            <h3>Recent Notes (<span id="guestbookTotalCount">0</span>)</h3>
+            <span class="live-pill">Live Feed</span>
+          </div>
+          <div class="guestbook-entries" id="guestbookEntriesList">
+            <!-- Rendered by script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="section-header reveal">
+        <div class="section-tag">06 / LET'S CONNECT</div>
+        <h2 class="section-title">Get In Touch.</h2>
+        <p class="section-desc">Open for internship roles, embedded hardware collaborations, or technical discussions.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Direct Contact Details -->
+        <div class="contact-info-panel reveal">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>Direct Email</h4>
+              <a href="mailto:mayankmanipandey2004@gmail.com" class="info-link" id="contactEmailLink">mayankmanipandey2004@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Location & University</h4>
+              <p class="info-text">Pondicherry University (Central University), Puducherry, India</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h4>Engineering Profiles</h4>
+              <div class="social-pills" id="contactSocialPills">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card resume-callout">
+            <div>
+              <h4>Official Resume</h4>
+              <p class="info-text">ATS-formatted with course details, project highlights, and simulation metrics.</p>
+            </div>
+            <a href="resume.html" class="btn btn-outline-cyan" target="_blank">View Resume ↗</a>
+          </div>
+        </div>
+
+        <!-- Working Contact Form -->
+        <div class="contact-form-panel reveal delay-1">
+          <form id="contactForm" class="custom-form contact-main-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Your Name *</label>
+                <input type="text" id="contactName" required placeholder="Jane Doe" maxlength="100" />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address *</label>
+                <input type="email" id="contactEmail" required placeholder="jane@example.com" maxlength="100" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactSubject">Subject *</label>
+                <input type="text" id="contactSubject" required placeholder="Internship Inquiry / Collab" maxlength="150" />
+              </div>
+              <div class="form-group">
+                <label for="contactInterest">Interest Area</label>
+                <select id="contactInterest">
+                  <option value="Internship Opportunity">Internship Opportunity</option>
+                  <option value="Embedded Systems Project">Embedded Systems Project</option>
+                  <option value="IoT Hardware Collaboration">IoT Hardware Collaboration</option>
+                  <option value="General Engineering Chat">General Engineering Chat</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Your Message *</label>
+              <textarea id="contactMessage" required rows="5" placeholder="Share project details, opportunities, or questions..." maxlength="2000"></textarea>
+              <div class="char-count"><span id="contactCharCount">0</span>/2000</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn">
+              <span id="contactSubmitText">Send Message to Mayank</span>
+              <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <span class="brand-dot"></span>
+          <strong>Mayank Mani Pandey</strong>
+        </div>
+        <p class="footer-text">Built with HTML5, CSS3, JavaScript, and Node.js / Express backend.</p>
+        <p class="footer-copy" id="footerCopyright">© 2026 Mayank Mani Pandey. All rights reserved.</p>
+      </div>
+
+      <div class="footer-right">
+        <!-- Live Visitor / Server Metric -->
+        <div class="visitor-counter-box">
+          <span class="counter-label">Visitor Telemetry:</span>
+          <span class="counter-val" id="footerViewsCount">142</span>
+          <span class="counter-badge" id="footerServerBadge">API Connected</span>
+        </div>
+
+        <!-- Inbox / Admin Modal Trigger -->
+        <div class="footer-links">
+          <button class="footer-link-btn" id="openInboxModalBtn">📬 Message Inbox (Admin)</button>
+          <a href="resume.html" class="footer-link">Printable Resume</a>
+          <a href="#top" class="footer-link" id="backToTopBtn">↑ Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAIL MODAL -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true" role="dialog" aria-labelledby="modalProjectTitle">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="closeProjectModalBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modalProjectContent">
+        <!-- Injected via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN INBOX MODAL -->
+  <div class="modal-overlay" id="inboxModal" aria-hidden="true" role="dialog" aria-labelledby="inboxModalTitle">
+    <div class="modal-container inbox-modal-container">
+      <button class="modal-close-btn" id="closeInboxModalBtn" aria-label="Close modal">&times;</button>
+      <div class="inbox-header">
+        <h3 id="inboxModalTitle">📬 Contact Messages Inbox</h3>
+        <p class="inbox-sub">Real-time messages submitted via the portfolio contact form.</p>
+      </div>
+      <div class="inbox-list" id="inboxMessagesList">
+        <!-- Populated via API -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

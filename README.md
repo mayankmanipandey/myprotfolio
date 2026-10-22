@@ -111,7 +111,7 @@ The backend server is powered by Express and provides the following REST endpoin
 
 ### 1. Clone or Open the Repository
 ```bash
-git clone https://github.com/Mayank-Mani-Pandey/portfolio.git
+git clone https://github.com/mayankmanipandey/myprotfolio.git
 cd portfolio
 ```
 
@@ -173,7 +173,7 @@ git commit -m "feat: complete full-stack portfolio with virtual ECE lab, API, an
 Create a repository on GitHub (e.g. `portfolio` or `Mayank-Mani-Pandey.github.io`), then run:
 ```bash
 git branch -M main
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME.git
+git remote add origin https://github.com/mayankmanipandey/myprotfolio.git
 git push -u origin main
 ```
 

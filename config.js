@@ -24,7 +24,7 @@ const SITE_CONFIG = {
   resume: "resume.html",
 
   social: {
-    github: "https://github.com/Mayank-Mani-Pandey",
+    github: "https://github.com/mayankmanipandey",
     linkedin: "https://www.linkedin.com/in/mayank-mani-pandey/",
     instagram: "https://www.instagram.com/",
     email: "mailto:mayankmanipandey2004@gmail.com"
@@ -68,7 +68,7 @@ struct WasteBinNode {
   int batteryMv = 3680;
 };`,
       demoUrl: "#",
-      githubUrl: "https://github.com/Mayank-Mani-Pandey"
+      githubUrl: "https://github.com/mayankmanipandey"
     },
     {
       id: "arduino-counter",
@@ -97,7 +97,7 @@ struct WasteBinNode {
   0b01101111  // 9
 };`,
       demoUrl: "#interactive-lab",
-      githubUrl: "https://github.com/Mayank-Mani-Pandey"
+      githubUrl: "https://github.com/mayankmanipandey"
     },
     {
       id: "lcd-buzzer",
@@ -119,7 +119,7 @@ struct WasteBinNode {
   lcd.print("! WARNING ALERT !");
 }`,
       demoUrl: "#",
-      githubUrl: "https://github.com/Mayank-Mani-Pandey"
+      githubUrl: "https://github.com/mayankmanipandey"
     }
   ],
 
